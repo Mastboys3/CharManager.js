@@ -1,4 +1,4 @@
-CharManager
+CharManager.js - Made in JavaScript
 ===========
 
-Manages chars. Made in JavaScript
+CharManager.js manages chars.
