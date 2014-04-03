@@ -109,3 +109,17 @@ window.fromChars = fromChars;
 window.toChars = toChars;
 window.charset = charset;
 window.include = include;
+window.params = (function () {
+    var match,
+        pl     = /\+/g,  // Regex for replacing addition symbol with a space
+        search = /([^&=]+)=?([^&]*)/g,
+        decode = function (s) { return decodeURIComponent(s.replace(pl, " ")); },
+        query  = window.location.search.substring(1),
+        params = {};
+    
+    while (match = search.exec(query)) {
+        params[decode(match[1])] = decode(match[2]);
+    }
+    
+    return params;
+})();
